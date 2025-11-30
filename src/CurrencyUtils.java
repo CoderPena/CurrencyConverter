@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class CurrencyUtils {
 
@@ -25,6 +27,13 @@ public class CurrencyUtils {
                 System.out.println("Entrada inválida. Digite um número válido.");
             }
         }
+    }
+
+    public static String formatCurrency(double value) {
+        NumberFormat nf = NumberFormat.getNumberInstance(new Locale("pt", "BR"));
+        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(4);
+        return nf.format(value);
     }
 
 }

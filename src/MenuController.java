@@ -68,6 +68,13 @@ public class MenuController {
                 double amount = CurrencyUtils.readAmountFromUser(scanner, op.getFromCurrency());
 
                 // ConversionResult result = ApiConverter.convert(API_KEY, op.getFromCurrency(), op.getToCurrency(), amount);
+                CurrencyConversionService service = new CurrencyConversionService();
+                double converted = service.convert(op.getFromCurrency(), op.getToCurrency(), amount);
+
+                System.out.printf("Valor convertido: %s %s -> %s %s\n",
+                        CurrencyUtils.formatCurrency(amount), op.getFromCurrency(),
+                        CurrencyUtils.formatCurrency(converted), op.getToCurrency()
+                );
 
                 criterioMenu = DEFAULT_CURRENCY_COUNT; // Volta para modo padrão
 

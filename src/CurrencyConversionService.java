@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class CurrencyConversionService {
@@ -13,6 +14,7 @@ public class CurrencyConversionService {
     public double convert(String from, String to, double amount) {
 
         String apiUrl = String.format(
+                Locale.US, // garante separador decimal = ponto
                 "https://v6.exchangerate-api.com/v6/%s/pair/%s/%s/%.4f",
                 AppConfig.API_KEY, from, to, amount
         );
