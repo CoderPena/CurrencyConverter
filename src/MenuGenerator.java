@@ -35,7 +35,7 @@ public class MenuGenerator {
         List<MenuOption> menu = new ArrayList<>();
         int optionNumber = 1;
 
-        menu.add(new MenuOption(-1, "", "", "\n Opções de Conversão Ida e Volta de Moedas:\n"));
+        menu.add(new MenuOption(-1, "", "", "\n " + selected.size() * 2 + " Opções de Conversão Ida e Volta de " + selected.size() + " Moedas aleatórias:\n"));
 
         for (CurrencyInfo c : selected) {
             String option1 = String.format("%2d - %s [%s] -> %s [%s]",
@@ -49,6 +49,8 @@ public class MenuGenerator {
 
         menu.add(new MenuOption(0, "", "", "\n 0  - Listar todas as moedas disponíveis para conversão"));
         menu.add(new MenuOption(99, "", "", " 99 - Sair do programa\n"));
+        menu.add(new MenuOption(99, "", "", "<ENTER> Apresenta 6 moedas aleatórias com conversão ida e volta"));
+        menu.add(new MenuOption(99, "", "", "Número maior que " + selected.size() * 2 + " apresenta este número de moedas aleatórias\n"));
         menu.add(new MenuOption(-1, "", "", "----------------------------------------------"));
         menu.add(new MenuOption(-1, "", "", "Escolha uma opção acima ou entre o código da moeda: "));
 
