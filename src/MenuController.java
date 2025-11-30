@@ -71,9 +71,13 @@ public class MenuController {
                 CurrencyConversionService service = new CurrencyConversionService();
                 double converted = service.convert(op.getFromCurrency(), op.getToCurrency(), amount);
 
-                System.out.printf("Valor convertido: %s %s -> %s %s\n",
-                        CurrencyUtils.formatCurrency(amount), op.getFromCurrency(),
-                        CurrencyUtils.formatCurrency(converted), op.getToCurrency()
+                System.out.printf("Valor convertido (formato nacional): %s %s -> %s %s\n",
+                        CurrencyUtils.formatCurrencyBR(amount), op.getFromCurrency(),
+                        CurrencyUtils.formatCurrencyBR(converted), op.getToCurrency()
+                );
+                System.out.printf("Valor convertido (formato internacional): %s %s -> %s %s\n",
+                        CurrencyUtils.formatCurrencyInternational(amount), op.getFromCurrency(),
+                        CurrencyUtils.formatCurrencyInternational(converted), op.getToCurrency()
                 );
 
                 criterioMenu = DEFAULT_CURRENCY_COUNT; // Volta para modo padrão

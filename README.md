@@ -36,6 +36,21 @@ thousand separators, and a dynamic menu system.
 -   gson-2.10.1.jar\
 -   Environment variable `API_KEY` set in IntelliJ or your shell
 
+
+## 🔧 Setup
+
+### 1. Get your API key  
+Obtain your key at **https://www.exchangerate-api.com/**.
+
+### 2.In IntelliJ IDEA
+1. Open **Run > Edit Configurations**
+2. In **Environment variables**, click **...**
+3. Add the entry:
+
+| Name     | Value        |
+|----------|--------------|
+| API_KEY  | your_api_key |
+
 ## ▶️ Running
 
 ``` bash
@@ -46,7 +61,7 @@ java -cp "src:lib/gson-2.10.1.jar" CurrencyConverterApp
 
 ## 📌 Example Output
 
-    45215.78 BRL → 221,787.92 ZWL
+    45.215,78 BRL → 221.787,92 ZWL
 
 ## 🤝 Contributing
 

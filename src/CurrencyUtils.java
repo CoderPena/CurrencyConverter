@@ -29,11 +29,25 @@ public class CurrencyUtils {
         }
     }
 
-    public static String formatCurrency(double value) {
+    public static String formatCurrencyBR(double value) {
         NumberFormat nf = NumberFormat.getNumberInstance(new Locale("pt", "BR"));
         nf.setMinimumFractionDigits(4);
         nf.setMaximumFractionDigits(4);
         return nf.format(value);
     }
+
+    public static String formatCurrencyLocal(double value) {
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.getDefault());
+        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(4);
+        return nf.format(value);
+    }
+    public static String formatCurrencyInternational(double value) {
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
+        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(4);
+        return nf.format(value);
+    }
+
 
 }
