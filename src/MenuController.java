@@ -6,7 +6,6 @@ public class MenuController {
 
     private static final String BASE_CURRENCY = "BRL";
     private static final String DISPLAY_BASE = "Brazilian Real";
-    private static final String API_KEY = System.getenv("API_KEY");
     private static final Scanner scanner = new Scanner(System.in);
     private static final String DEFAULT_CURRENCY_COUNT = "6";
 
@@ -18,7 +17,7 @@ public class MenuController {
             System.out.println("###### [Aplicação Conversor de Moedas] ######");
             System.out.println("#############################################");
 
-            List<CurrencyInfo> currencies = CurrencyLoader.loadCurrencies(API_KEY);
+            List<CurrencyInfo> currencies = CurrencyLoader.loadCurrencies(AppConfig.API_KEY);
             currencies.removeIf(c -> c.getCode().equals(BASE_CURRENCY));
 
             while (true) {
