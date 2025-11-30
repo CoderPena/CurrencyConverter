@@ -8,7 +8,9 @@ public class MenuController {
     private static final String DISPLAY_BASE = "Brazilian Real";
     private static final String API_KEY = System.getenv("API_KEY");
     private static final Scanner scanner = new Scanner(System.in);
-    private String criterioMenu = "6"; // Pode virar atributo configurável
+    private static final String DEFAULT_CURRENCY_COUNT = "6";
+
+    private String criterioMenu = DEFAULT_CURRENCY_COUNT; // Pode virar atributo configurável
 
     public void start() {
         try {
@@ -64,10 +66,11 @@ public class MenuController {
             if (selectedOption.isPresent()) {
                 MenuOption op = selectedOption.get();
                 System.out.printf("Converter de %s para %s\n", op.getFromCurrency(), op.getToCurrency());
+                double amount = CurrencyUtils.readAmountFromUser(scanner, op.getFromCurrency());
 
-                // Exemplo futuro
-                // double amount = InputUtils.getValidAmount(op.getFromCurrency());
                 // ConversionResult result = ApiConverter.convert(API_KEY, op.getFromCurrency(), op.getToCurrency(), amount);
+
+                criterioMenu = DEFAULT_CURRENCY_COUNT; // Volta para modo padrão
 
             } else {
                 System.out.println("Opção inválida!");
@@ -80,7 +83,7 @@ public class MenuController {
             criterioMenu = optionInput;
         } else {
             System.out.println("Opção inválida! -> " + optionInput);
-            criterioMenu = "6"; // Volta para modo padrão
+            criterioMenu = DEFAULT_CURRENCY_COUNT; // Volta para modo padrão
         }
     }
 }

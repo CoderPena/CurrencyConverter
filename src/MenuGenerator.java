@@ -56,41 +56,4 @@ public class MenuGenerator {
 
         return menu;
     }
-
-/*
-    public static List<MenuOption> generateRandomMenu(List<CurrencyInfo> currencies, String baseCurrency, String displayBase, Integer qdeOpcoes) {
-
-        List<CurrencyInfo> shuffled = new ArrayList<>(currencies);
-        Collections.shuffle(shuffled);
-
-        int numberOfCurrencies = Math.min(qdeOpcoes, shuffled.size());
-        List<CurrencyInfo> selected = shuffled.subList(0, numberOfCurrencies);
-
-        List<MenuOption> menu = new ArrayList<>();
-        int optionNumber = 1;
-
-        // Cabeçalho
-        menu.add(new MenuOption(-1, "", "", "\n Opções de conversão (ida e volta em lista aleatória):\n"));
-
-        // Opções de conversão
-        for (CurrencyInfo c : selected) {
-            String option1 = String.format("%2d - %s [%s] -> %s [%s]",
-                    optionNumber, displayBase, baseCurrency, c.getName(), c.getCode());
-            menu.add(new MenuOption(optionNumber++, baseCurrency, c.getCode(), option1));
-
-            String option2 = String.format("%2d - %s [%s] -> %s [%s]",
-                    optionNumber, c.getName(), c.getCode(), displayBase, baseCurrency);
-            menu.add(new MenuOption(optionNumber++, c.getCode(), baseCurrency, option2));
-        }
-
-        // Opção de listar todas
-        menu.add(new MenuOption(0, "", "", "\n 0  - Listar todas as moedas disponíveis para conversão"));
-        // Opção para sair
-        menu.add(new MenuOption(99, "", "", " 99 - Sair do programa\n"));
-        menu.add(new MenuOption(-1, "", "", "----------------------------------------------"));
-        menu.add(new MenuOption(-1, "", "", "Escolha uma opção: "));
-
-        return menu;
-    }
-*/
 }
